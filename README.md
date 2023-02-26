@@ -1,11 +1,46 @@
-# IaKee's Installer System
+# IaKee's Installer System (IIS)
 
-IaKee's Installer System is a lightweight and user-friendly installation system that simplifies the process of distributing software applications. With a focus on ease of use and efficiency, this tool empowers even novice developers to share their projects with others, using a SaaS-like model.
+IaKee's Installer System (IIS) is a lightweight, user-friendly installation system designed to simplify the process of installing and uninstalling software on Windows systems. With a focus on ease-of-use and flexibility, IIS allows developers to create professional-looking installers quickly and easily, with minimal effort required.
 
-Built on top of the ttk-Azure theme (with a customized orange color scheme), the IaKee's Installer System automates the tedious and error-prone task of writing to the Windows registry, creating program entries, and generating icons. Furthermore, the system also includes a reverse process for easy uninstallation, ensuring a clean and seamless user experience.
+Built using Python and the tkinter framework, IIS offers a customizable, dark-themed user interface that can be tailored to fit any project's branding. The installer system handles all the heavy lifting, automatically creating Windows Registry entries, program shortcuts, and uninstaller entries, while allowing developers to specify custom installation locations, add-on components, and more.
 
-Designed with versatility and extensibility in mind, IaKee-Installer-System allows developers to easily customize and configure the installer to meet their unique needs. Whether you're creating a simple single-file application or a complex multi-component system, this tool streamlines the installation process and helps you get your software into the hands of users quickly and efficiently.
+IIS also includes a built-in uninstaller that can be used to remove software installations cleanly and completely, ensuring that no traces are left behind on the system.
 
-Licensed under the permissive MIT license, the IaKee's Installer System is free and open-source software. To see the tool in action, check out the included example project, which demonstrates how to use the system to create a basic installer for a sample application.
+With IaKee's Installer System, developers can focus on creating great software, knowing that the installation process is taken care of. Plus, with the open-source MIT license, IIS can be used freely in both commercial and non-commercial projects.
 
-If you're a developer looking to simplify the installation process for your applications, or just interested in exploring the world of software installation and distribution, give IaKee's Installer System a try and see how it can help you streamline your workflow and improve your productivity.
+Features:
+
+-Lightweight and easy-to-use
+-Customizable, dark-themed user interface
+-Handles Windows Registry entries, program shortcuts, and uninstaller entries automatically
+-Allows developers to specify custom installation locations, add-on components, and more
+-Includes a built-in uninstaller to remove software installations cleanly and completely
+-Open-source MIT license
+
+## Example usage:
+```python
+
+import IaKeeInstaller as iis
+
+# Create an installer object
+installer = iis.Installer("My Application")
+
+# Add files to the installer
+installer.add_file("C:/path/to/my/app.exe", "Program Files/My Application/app.exe")
+
+# Add shortcuts to the installer
+installer.add_shortcut("Program Files/My Application/app.exe", "Desktop")
+
+# Specify custom installation options
+installer.install_dir = "C:/Program Files/My Application"
+installer.add_option("Install add-on component", "yesno")
+
+# Build the installer
+installer.build("My Application Setup.exe")
+
+# Create an uninstaller object
+uninstaller = iis.Uninstaller("My Application")
+
+# Build the uninstaller
+uninstaller.build("My Application Uninstaller.exe")
+```
